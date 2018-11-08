@@ -1,7 +1,7 @@
 
 // Initialise Pusher
-const pusher = new Pusher('<YOUR_PUSHER_KEY_HERE>', {
-    cluster: '<YOUR_PUSHER_CLUSTER_HERE>',
+const pusher = new Pusher('74f52fef496b7b54cff0', {
+    cluster: 'mt1',
     encrypted: true
 });
 
