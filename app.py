@@ -37,13 +37,8 @@ def detect_intent_texts(project_id, session_id, text, language_code):
 @app.route('/send_message', methods=['POST'])
 def send_message():
     message = request.form['message']
-    #fulfillment_text = detect_intent_texts(project_id, "unique", message, 'en')
     response = bot.handle_input(message)
-    print("response:", response)
-    # response_text = { "message":  fulfillment_text }
-
-    #pusher_client.trigger('movie_bot', 'new_message', {'human_message': message, 'bot_message': fulfillment_text})
-                        
+    pusher_client.trigger('movie_bot', 'new_message', {'human_message': message, 'bot_message': fulfillment_text})                   
     # return jsonify(response_text)
     return jsonify(response)
 
