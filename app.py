@@ -42,6 +42,6 @@ def send_message():
                         
     return jsonify(response_text)
 
-# run Flask app
-if __name__ == "__main__":
-    app.run()
+# # run Flask app
+# if __name__ == "__main__":
+#     app.run()
