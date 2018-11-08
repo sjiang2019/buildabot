@@ -4,10 +4,9 @@ import dialogflow
 import requests
 import json
 import pusher
+from bot import Bot
 
 app = Flask(__name__, static_url_path="/static")
-
-print("app_id:",os.getenv('PUSHER_APP_ID'))
 
 # initialize Pusher
 pusher_client = pusher.Pusher(
@@ -16,6 +15,9 @@ pusher_client = pusher.Pusher(
     secret=os.getenv('PUSHER_SECRET'),
     cluster=os.getenv('PUSHER_CLUSTER'),
     ssl=True)
+
+project_id = os.getenv('DIALOGFLOW_PROJECT_ID')
+bot = Bot(project_id)
 
 @app.route('/')
 def index():
@@ -35,13 +37,15 @@ def detect_intent_texts(project_id, session_id, text, language_code):
 @app.route('/send_message', methods=['POST'])
 def send_message():
     message = request.form['message']
-    project_id = os.getenv('DIALOGFLOW_PROJECT_ID')
-    fulfillment_text = detect_intent_texts(project_id, "unique", message, 'en')
-    response_text = { "message":  fulfillment_text }
+    #fulfillment_text = detect_intent_texts(project_id, "unique", message, 'en')
+    response = bot.handle_input(message)
+    print("response:", response)
+    # response_text = { "message":  fulfillment_text }
 
     #pusher_client.trigger('movie_bot', 'new_message', {'human_message': message, 'bot_message': fulfillment_text})
                         
-    return jsonify(response_text)
+    # return jsonify(response_text)
+    return jsonify(response)
 
 # # run Flask app
 # if __name__ == "__main__":

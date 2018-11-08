@@ -1,0 +1,30 @@
+1 Desires I want to VP
+1 Hobbies I enjoy VP
+1 Interests I like NP
+1 Opinions I think that NP should VP
+1 Sentence NP VP
+0.8 VP Verb Noun
+0.2 VP VP Conj VP
+0.8 NP Det Noun
+0.2 NP NP Conj NP
+0.2 Noun Adj Noun
+0.1 Noun {0}
+0.1 Noun {1}
+0.1 Noun {2}
+0.1 Noun {3}
+0.1 Noun {4}
+0.1 Noun {5}
+0.1 Noun {6}
+0.1 Noun {7}
+1 Det the
+0.25 Verb {8}
+0.25 Verb {9}
+0.25 Verb {10}
+0.25 Verb {11}
+0.8 Conj and
+0.2 Conj or
+0.2 Adj {12}
+0.2 Adj {13}
+0.2 Adj {14}
+0.2 Adj {15}
+0.2 Adj {16}

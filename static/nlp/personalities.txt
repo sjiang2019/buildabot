@@ -1,0 +1,4 @@
+Destructive,destroy,break,attack,ruin
+Fun,amuse,entertain,tickle,stimulate
+Negative,annoy,anger,dread,frighten
+Happy,amuse,delight,enchant,excite
