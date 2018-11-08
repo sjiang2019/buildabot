@@ -5,7 +5,7 @@ import requests
 import json
 import pusher
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path="/static")
 
 
 # initialize Pusher
