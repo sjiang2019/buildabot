@@ -7,6 +7,7 @@ import pusher
 
 app = Flask(__name__, static_url_path="/static")
 
+print("app_id:",os.getenv('PUSHER_APP_ID'))
 
 # initialize Pusher
 pusher_client = pusher.Pusher(
