@@ -1,31 +1,4 @@
 
-// Initialise Pusher
-const pusher = new Pusher('74f52fef496b7b54cff0', {
-    cluster: 'mt1',
-    encrypted: true
-});
-
-// Subscribe to movie_bot channel
-const channel = pusher.subscribe('movie_bot');
-
-  // bind new_message event to movie_bot channel
-  channel.bind('new_message', function(data) {
-   // Append human message
-    $('.chat-container').append(`
-        <div class="chat-message col-md-5 human-message">
-            ${input_message}
-        </div>
-    `)
-    
-    // Append bot message
-    $('.chat-container').append(`
-        <div class="chat-message col-md-5 offset-md-7 bot-message">
-            ${data.message}
-        </div>
-    `)
-});
-
-
 function submit_message(message) {
 
     $.post( "/send_message", {
