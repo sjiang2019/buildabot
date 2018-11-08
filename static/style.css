@@ -5,7 +5,7 @@ body {
 
 .chat-container {
     margin: 0px;
-    padding: px;
+    padding: 5px;
 }
 
 .chat-message {
@@ -20,6 +20,7 @@ body {
 }
 
 .human-message {
+    font-size: 32px;
     background: #eee;
     border-radius: 5px;
 }
