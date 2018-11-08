@@ -38,7 +38,7 @@ def detect_intent_texts(project_id, session_id, text, language_code):
 def send_message():
     message = request.form['message']
     response = bot.handle_input(message)
-    pusher_client.trigger('movie_bot', 'new_message', {'human_message': message, 'bot_message': fulfillment_text})                   
+    pusher_client.trigger('movie_bot', 'new_message', {'human_message': message, 'bot_message': response['message']})                   
     # return jsonify(response_text)
     return jsonify(response)
 
