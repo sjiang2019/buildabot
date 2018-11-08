@@ -18,7 +18,7 @@ pusher_client = pusher.Pusher(
 
 @app.route('/')
 def index():
-    return render_template('/templates/index.html')
+    return render_template('index.html')
 
 def detect_intent_texts(project_id, session_id, text, language_code):
     session_client = dialogflow.SessionsClient()
