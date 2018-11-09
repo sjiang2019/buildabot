@@ -8,7 +8,7 @@
 0.5 Opinions I think that NP should VP
 0.5 Opinions I strongly believe that NP should try to VP
 0.5 Feelings To be honest, I feel pretty Adj
-0.5 Feelings I woke up today feeling a Adj
+0.5 Feelings I woke up today feeling Adj
 1 Sentence NP VP
 0.7 VP Verb Noun
 0.3 VP VP Conj VP
