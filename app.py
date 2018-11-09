@@ -19,7 +19,7 @@ def index():
 
 @app.route('/send_message', methods=['POST'])
 def send_message():
-    message = request.form['message']
+    message = request.form['input_message']
     print("message:", message)
     response = bot.handle_input(message)
     return jsonify(response)
