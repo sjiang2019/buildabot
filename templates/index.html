@@ -5,14 +5,50 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/materialize/css/materialize.min.css') }}" media="screen,projection"/>
+
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
     <title>Chat Bot</title>
   </head>
   <body>
-      <div class="container h-100">
-        <div class="row align-items-center h-100">
+      <div style="float: left; width:15%; height: 100%;">
+            <div class="align-self-center"></div>
+                <div class="input-field col s12">
+                    <select name="character" id="character">
+                        <option value="" disabled selected>Character</option>
+                        <option value="Dartmouth">Dartmouth Student</option>
+                        <option value="Doctor Seuss">Dr. Seuss</option>
+                        <option value="Wizard">Wizard</option>
+                        <option value="Jedi">Jedi</option>
+                        <option value="Marine Biologist">Marine Biologist</option>
+                    </select>
+                    <label>Choose a character.</label>
+                </div>
+                <div class="input-field col s12">
+                    <select name="personality" id="personality">
+                        <option value="" disabled selected>Personality</option>
+                        <option value="Destructive">Destructive</option>
+                        <option value="Fun">Fun</option>
+                        <option value="Negative">Negative</option>
+                        <option value="Happy">Happy</option>
+                    </select>
+                    <label>Choose a personality.</label>
+                </div>
+                <div class="input-field col s12">
+                    <select name="emotion" id="emotion">
+                        <option value="" disabled selected>Emotion</option>
+                        <option value="Happy">Happy</option>
+                        <option value="Sad">Sad</option>
+                    </select>
+                    <label>Choose an emotion.</label>
+                </div>
+            </div>
+      </div>
+      <div class="container h-100" style="margin-left: 15%;">
+        <div class="row align-items-end h-100">
             <div class="col-md-8 col-sm-12 mx-auto">
                 <div class="h-100 justify-content-center">
                     <div class="chat-container" style="overflow: auto; max-height: 80vh" id="messages">
@@ -28,6 +64,7 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='styles/materialize/js/materialize.min.js')}}"></script>
     <script src="{{ url_for('static', filename='custom.js')}}"></script>
   </body>
 </html>

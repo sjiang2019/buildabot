@@ -4,27 +4,33 @@ import dialogflow
 import requests
 import json
 from bot import Bot
-import sys
+from grammar import Grammar
+from utils import *
 
 app = Flask(__name__)
-bot = None
+
+project_id = os.getenv('DIALOGFLOW_PROJECT_ID')
+character_map, personality_map, emotion_map = read_attributes()
+bot = Bot(project_id)
     
 @app.route('/')
 def index():
-    global bot
-    project_id = os.getenv('DIALOGFLOW_PROJECT_ID')
-    bot = Bot(project_id)
     return render_template('index.html')
 
 @app.route('/send_message', methods=['POST'])
 def send_message():
-    global bot
-    if not bot:
-        project_id = os.getenv('DIALOGFLOW_PROJECT_ID')
-        bot = Bot(project_id)
     message = request.form['message']
-    response = bot.handle_input(message)
-    return jsonify(response)
+    character = character_map[request.form['character']]
+    personality = personality_map[request.form['personality']]
+    emotion = emotion_map[request.form['emotion']]
+    grammar = Grammar(character + personality + emotion)
+    response = grammar.generate_response(message)
+    if len(response) == 0:
+        response = bot.use_chat_bot(message)
+    if not response:
+        response = clean_sentence(grammar.gen_sent("Sentence"))
+    result_message = { "message":  response }
+    return jsonify(result_message)
 
 # run Flask app
 if __name__ == "__main__":

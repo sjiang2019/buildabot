@@ -1,7 +1,15 @@
-function submit_message(message) {
+
+$(document).ready(function(){
+    $('select').formSelect();
+});
+
+function submit_message(message, character, personality, emotion) {
 
     $.post( "/send_message", {
-        message: message
+        message: message,
+        character: character,
+        personality: personality,
+        emotion: emotion
     }, handle_response);
     
     function handle_response(data) {
@@ -21,6 +29,9 @@ function submit_message(message) {
 $('#target').on('submit', function(e){
     e.preventDefault();
     const input_message = $('#message').val()
+    const character = $('#character').val()
+    const personality = $('#personality').val()
+    const emotion = $('#emotion').val()
     // return if the user does not enter any text
     if (!input_message) {
       return
@@ -32,6 +43,16 @@ $('#target').on('submit', function(e){
         </div>
     `)
     
+    if (!character || !personality || !emotion) {
+        $('.chat-container').append(`
+            <div class="chat-message text-center col-md-5 bot-message" id="loading">
+                Please configure all options.
+            </div>
+        `)
+        $('#message').val('')
+        return
+    }
+
     // loading 
     $('.chat-container').append(`
         <div class="chat-message text-center col-md-2 offset-md-10 bot-message" id="loading">
@@ -43,5 +64,5 @@ $('#target').on('submit', function(e){
     $('#message').val('')
     
     // send the message
-    submit_message(input_message)
+    submit_message(input_message, character, personality, emotion)
 });
