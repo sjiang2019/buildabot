@@ -48,12 +48,14 @@ class Grammar:
         if "you" in user_input:
             if "think" in user_input:
                 response = "Opinions"
-            elif "want" in user_input:
+            elif "want" in user_input or "desire" in user_input:
                 response = "Desires"
-            elif "to do" in user_input or "doing" in user_input:
+            elif "to do" in user_input or "hobbies" in user_input or "do for fun" in user_input or "hobby" in user_input:
                 response = "Hobbies"
             elif "like" in user_input or "enjoy" in user_input or "love" in user_input:
                 response = "Interests"
+            elif "feel" in user_input or "feeling" in user_input or "how are you" in user_input or "How are you" in user_input:
+                response = "Feelings"
         if response:
             sent = clean_sentence(self.gen_sent(response))
             return sent

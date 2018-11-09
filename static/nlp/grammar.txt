@@ -1,12 +1,19 @@
-1 Desires I want to VP
-1 Hobbies I enjoy VP
-1 Interests I like NP
-1 Opinions I think that NP should VP
+0.4 Desires I want to VP
+0.3 Desires I want NP to VP
+0.3 Desires I would like to VP, and maybe even VP
+0.5 Hobbies I like to VP
+0.5 Hobbies Whenever I have free time, I try to VP
+0.5 Interests I like NP
+0.5 Interests I'm interested in NP
+0.5 Opinions I think that NP should VP
+0.5 Opinions I strongly believe that NP should try to VP
+0.5 Feelings To be honest, I feel pretty Adj
+0.5 Feelings I woke up today feeling a Adj
 1 Sentence NP VP
-0.8 VP Verb Noun
-0.2 VP VP Conj VP
-0.8 NP Det Noun
-0.2 NP NP Conj NP
+0.7 VP Verb Noun
+0.3 VP VP Conj VP
+0.7 NP Det Noun
+0.3 NP NP Conj NP
 0.2 Noun Adj Noun
 0.1 Noun {0}
 0.1 Noun {1}
