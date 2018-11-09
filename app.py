@@ -8,16 +8,13 @@ import sys
 
 app = Flask(__name__, static_url_path="/static/")
 bot = None
-
-
-@app.before_first_request
-def create_bot():
-    global bot
-    project_id = os.getenv('DIALOGFLOW_PROJECT_ID')
-    bot = Bot(project_id)
+    
 
 @app.route('/')
 def index():
+    global bot
+    project_id = os.getenv('DIALOGFLOW_PROJECT_ID')
+    bot = Bot(project_id)
     return render_template('index.html')
 
 @app.route('/send_message', methods=['POST'])
