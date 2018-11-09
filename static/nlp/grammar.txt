@@ -1,6 +1,6 @@
 0.4 Desires I want to VP
 0.3 Desires I want NP to VP
-0.3 Desires I would like to VP, and maybe even VP
+0.3 Desires I would like to VP and maybe even VP
 0.5 Hobbies I like to VP
 0.5 Hobbies Whenever I have free time, I try to VP
 0.5 Interests I like NP
