@@ -20,7 +20,7 @@ function submit_message(message) {
 
 $('#target').on('submit', function(e){
     e.preventDefault();
-    const input_message = $('#input_message').val()
+    const input_message = $('#message').val()
     // return if the user does not enter any text
     if (!input_message) {
       return
@@ -40,7 +40,7 @@ $('#target').on('submit', function(e){
     `)
     
     // clear the text input 
-    $('#input_message').val('')
+    $('#message').val('')
     
     // send the message
     submit_message(input_message)

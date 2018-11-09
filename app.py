@@ -12,15 +12,16 @@ bot = None
 
 @app.route('/')
 def index():
-    global bot
-    project_id = os.getenv('DIALOGFLOW_PROJECT_ID')
-    bot = Bot(project_id)
     return render_template('index.html')
 
 @app.route('/send_message', methods=['POST'])
 def send_message():
-    message = request.form['input_message']
+    global bot
+    message = request.form['message']
     print("message:", message)
+    if not bot:
+        project_id = os.getenv('DIALOGFLOW_PROJECT_ID')
+        bot = Bot(project_id)
     response = bot.handle_input(message)
     return jsonify(response)
 
