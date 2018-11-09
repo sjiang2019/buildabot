@@ -1,11 +1,10 @@
-html,
-body {
+body,html {
     height: 100%;
 }
 
 .chat-container {
     margin: 0px;
-    padding: 5px;
+    padding: px;
 }
 
 .chat-message {
@@ -16,21 +15,14 @@ body {
 
 .bot-message {
     background: #eee;
-    border-radius: 5px;
+    margin: 13px 1px;   
 }
 
 .human-message {
-    background: #eee;
+    background:dodgerblue;
+    color: white;
     border-radius: 5px;
 }
-
-/* .human-message {
-    font-size: 24px;
-    margin-top: -20px;
-    margin-bottom: 10px;
-    padding-left: 10px;
-    color: #aaa;
-} */
 
 .input {
     padding-top: 10px;
