@@ -1,5 +1,5 @@
-Dartmouth,Moving Dartmouth Forward,hazing allegations,Keystone,Hanlon,FoCo,pong,schmob,layup
+Dartmouth,MDF policies,hazing allegations,Keystone cans,freshmen,trippees,pong games,Novack dinners,layups
 Wizard,wizards,witches,sorting hats,Hufflepuffs,Slytherins,potions,spells,muggles
 Marine Biologist,lobsters,crabs,dolphins,fish,octopi,sharks,anemone,seaweed
 Doctor Seuss,loraxes,wockets,midwinter jickers,zaxes,guffs,wumbuses,spazzims,thnadners
-Jedi,padawan,galaxies,planets,Rebellion,Jedi,Sith,storm troopers,droids
+Jedi,padawans,galaxies,planets,Rebellion,Jedi,Sith,storm troopers,droids

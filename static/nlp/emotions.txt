@@ -1,2 +1,2 @@
 Happy,blissful,enamored,enthralled,kindhearted,jovial
-Sad,rejected,loathing,nervous,neglected,despaired
+Sad,rejected,hopeless,nervous,neglected,despaired

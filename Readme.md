@@ -1,127 +1,59 @@
-# How to build a chat bot with Flask, Pusher Channels and Dialogflow
+# Build-a-Bot
 
-This is a demo application showing how to build a Chat bot using Flask, Dialogflow and Pusher. You can read the tutorial on how it was built [here](https://pusher.com/tutorials/chatbot-flask-dialogflow)
+Steven Jiang
 
-![Sample working application](https://image.ibb.co/e6pMQJ/chat_bot_sample.gif "Sample working application")
+Writing with Algorithms Final Project
+
+See the live demo [here](https://dialego.herokuapp.com/).
+
+## Overview
+
+Chatbots are typically created for functional, pragmatic purposes. As a result, our interactions with chatbots are limited to shallow, one-sided experiences. This project aims to provide an unconventional chatbot experience by introducing elements of character, personality, and emotion.
+
+## How it works
+
+### Customizablity
+The chatbot has three customizable elements: character, personality, and emotion. Character is signified by nouns. For example, if the character is "Marine Biologist", then some of the nouns may be "lobsters", "crabs", "dolphins", "fish", etc. Personalities are exemplified through verbs. For example, if the personality is "Happy", the verbs may be "amuse", "delight", etc. Finally, emotion is characterized by adjectives. For example, if the emotion is "Sad", some of the adjectives may be "rejected", "neglected", etc.
+
+### Handling User Input
+When a user sends a message, the program looks for keywords that relate to certain sentence structures. For example, if the message is "What do you want?", the keywords "you" and "want" will trigger a sentence structure that exhibits a desire, i.e. "I want..." The program then generates a sentence of the desired sentence structure using a probabilistic Context Free Grammar, with the selected nouns, verbs, and adjectives. However, given the scope of this project, the number of keywords and sentence sentence structures are limited. If the program doesn't detect any keywords, the message is sent to DialogFlow's pre-built Small Talk bot, which handles generic greetings and questions. Finally, if Small Talk bot doesn't recognize the input, then a random sentence is generated using the Context Free Grammar provided.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
 ### Prerequisites
-
-This tutorial uses the following:
-
- - Python 3.6 (You should have python 3.6 or higher version installed)
- - Pusher Channels (Create an account [here](https://dashboard.pusher.com/accounts/sign_up) or [login](https://dashboard.pusher.com/accounts/sign_in) here)
+ - Python 3.6 
  - JavaScript (jQuery)
- - Dialogflow (Create an account [here](https://dashboard.pusher.com/accounts/sign_up) or [login](https://dashboard.pusher.com/accounts/sign_in) here)
- - [Ngrok](https://ngrok.com/) (Download it [here](https://ngrok.com/download) if you don't have it already)
+ - Flask
+ - [Dialogflow] (https://dialogflow.com/)
+ - [Ngrok](https://ngrok.com/)
 
-### Setting up the project
+### Dialogflow
 
-First of all, clone the repository to your local machine:
-
-```sh
- $ git clone https://github.com/dongido001/flask_chatbot.git
-```
-
-Next, create your environment keys:
-
-```
-cp .env.example .env
-```
-There are couple of keys you need to set in the `.env` file. The next sections will show you how you can get these keys.
-
-#### Pusher
-
-Login to your Pusher [account](https://dashboard.pusher.com/accounts/sign_in), create a new app and then get your API keys.
-
- Next update the following keys in the `.env` file with the correct keys:
-  ```
-  PUSHER_APP_ID=app_id
-  PUSHER_KEY=key
-  PUSHER_SECRET=secret
-  PUSHER_CLUSTER=cluster
-  ```
-
-#### Dialogflow
-
-You also need to create a Dialogflow account. Create it [here](https://console.dialogflow.com/api-client/#/login) or [login](https://console.dialogflow.com/api-client/#/login) if you have an account already.
-
-Next,
-  - Create a new agent called named `Movie-bot`
-  - Create an Intent named `movie`
-  - Create an Entity named `movie`
-  - Then enble the intent to use webhook
-  - Finally, on your Dialogflow console page, click on Fulfillment then enable webhook. 
-
-Now, get your Dialogflow API key. Head to Google cloud [here](https://console.cloud.google.com/apis/credentials/serviceaccountkey)
-
-Then,
-  - Select `Dialogflow integrations` under `Service account`. 
+- Create a Dialogflow account [here](https://console.dialogflow.com/api-client/#/login)
+- Enable the pre-built small talk chatbot
+- Click on Fulfillment and enable webhook
+- Get your Dialogflow API key and connect to [Google Cloud] (https://console.cloud.google.com/apis/credentials/serviceaccountkey)
+  - Select `Dialogflow integrations` under `Service account`
   - Then select `JSON` under `key type`. 
-  - Next, make sure at the top menu that our bot is selected as the project name - `Movie-Bot`
-  - Finally, click on the Create button to download the your API key
-
-Your API key will be downloaded automatically. It's a JSON file.
-
-Next, copy the downloaded file to the root folder of the project - `flask_chatbot`
-
-Then, update the keys in the `.env` file with the correct information:
- ```
- GOOGLE_APPLICATION_CREDENTIALS=*.json
- DIALOGFLOW_PROJECT_ID=project_id
- ```
- **Note**
-   - `*.json` is the name of the JSON file you just copied to the root folder of the project.
-   - To get your `project_id`, open the JSON file with your code editor, you will see a field - "project_id". The value is your `project_id`
-
-
-#### OMDb API key
-
-We are using [OMDb](http://www.omdbapi.com/) to fetch details of a movie. So you need to get an API key.
-
-To get a free API access key, head to [OMDb](http://www.omdbapi.com/apikey.aspx). Enter the required details, then submit the form. An email will be sent to you that contains your API key. You also need to activate your account from the email sent to you.
-
-Once you have your key, update the information in the `.env` file with the correct detail:
-
-```
-OMDB_API_KEY=API_KEY
-```
+- Copy the API key JSON file to the root folder of the project
+- Update keys in the `.env` file with the correct information
 
 ### Running the App
 
-To get the app running:
-
- - From a command line, cd into the project root folder - `flask_chatbot`
- - Creat a virtual environment:
- ```
- python3 -m venv env
- ```
- - Activate the virtual environment:
- ```
-   source env/bin/activate
- ```
- On windows? Activate it with the below:
- ```
-   env/Scripts/activate
- ```
-
+ - From a command line, cd into the project root folder - `buildabot`
  - Install the dependencies:
  ```
  pip install -r requirements.txt
  ```
-
- - Finally run the app:
+ - Run the app:
  ```
   flask run
  ```
+- The app should now be running on http://localhost:5000
 
- Congrats! The app should now be running on http://localhost:5000
+## Acknowledgements
 
-## Built With
-
-* [Flask](http://flask.pocoo.org/) - A microframework for Python
-* [Pusher](https://pusher.com/) - APIs to enable devs building realtime features
-* [Dialogflow](https://dialogflow.com/) A Google-owned developer of human–computer interaction technologies based on natural language conversations
+* [Flask](http://flask.pocoo.org/): A microframework for Python
+* [Dialogflow](https://dialogflow.com/): A Google-owned developer of human–computer interaction technologies based on natural language conversations
+* [Materialize](https://materializecss.com/): A modern responsive front-end framework based on Material Design
+* Boilerplate code borrowed from [this repo](https://github.com/dongido001/flask_chatbot)
