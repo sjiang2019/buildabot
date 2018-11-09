@@ -26,11 +26,9 @@ def index():
 @app.route('/send_message', methods=['POST'])
 def send_message():
     message = request.form['message']
-    print("message:", message, file=sys.stderr)
     response = bot.handle_input(message)
-    print("response:", response, file=sys.stderr)
     return jsonify(response)
 
 # run Flask app
-if __name__ == "__main__":
-    app.run()
+# if __name__ == "__main__":
+#     app.run()
