@@ -1,9 +1,6 @@
 RESPONSE_MAP = {
-    r'(.*)think(.*)?': "Opinions",
-    r'(.*)think?': "Opinions",
-    r'(.*)want(.*)?': "Desires",
-    r'(.*)want?': "Desires",
-    r'(.*)(to do|doing)?': "Hobbies",
-    r'(.*)(like|enjoy)(.*)?': "Interests",
-    r'(.*)(like|enjoy)?': "Interests",
+    r'(.*)you(.*)think': "Opinions",
+    r'(.*)you(.*)want': "Desires",
+    r'(.*)you(.*)(to do|doing)': "Hobbies",
+    r'(.*)you(.*)(like|enjoy)': "Interests",
 }
