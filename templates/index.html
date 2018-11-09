@@ -14,8 +14,17 @@
     <title>Chat Bot</title>
   </head>
   <body>
-      <div style="float: left; width:15%; height: 100%;">
-            <div class="align-self-center"></div>
+      <div style="float: left; width:30%; height: 100%;">
+            <div class="align-self-center col-md-12" style="padding-top:10%">
+                <p>
+                    <b>Build-a-Bot</b><br>
+                    Chatbots are typically created for functional, pragmatic purposes. 
+                    As a result, our interactions with chatbots are limited to shallow, one-sided experiences.
+                    This project aims to provide an unconventional chatbot experience by introducing hints of character, personality, and emotion.
+                    Please configure the options below.
+                </p>
+            </div>
+            <div class="align-self-center" style="padding-top:10%;">
                 <div class="input-field col s12">
                     <select name="character" id="character">
                         <option value="" disabled selected>Character</option>
@@ -46,12 +55,17 @@
                     <label>Choose an emotion.</label>
                 </div>
             </div>
+            <div class="align-self-end col-md-12" style="padding-top:10%">
+                <a href="https://github.com/sjiang2019">
+                <img src="{{ url_for('static', filename='GitHub-Mark/PNG/GitHub-Mark-64px.png') }}" alt="Github">
+                </a>
+            </div>
       </div>
-      <div class="container h-100" style="margin-left: 15%;">
+      <div class="container h-100">
         <div class="row align-items-end h-100">
-            <div class="col-md-8 col-sm-12 mx-auto">
+            <div class="col-md-10 col-sm-12 mx-auto">
                 <div class="h-100 justify-content-center">
-                    <div class="chat-container" style="overflow: auto; max-height: 80vh" id="messages">
+                    <div class="chat-container " style="overflow: auto; max-height: 80vh" id="messages">
                         <!-- chat messages -->
                     </div>
                     <form id="target">

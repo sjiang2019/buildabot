@@ -42,16 +42,6 @@ $('#target').on('submit', function(e){
             ${input_message}
         </div>
     `)
-    
-    if (!character || !personality || !emotion) {
-        $('.chat-container').append(`
-            <div class="chat-message text-center col-md-5 bot-message" id="loading">
-                Please configure all options.
-            </div>
-        `)
-        $('#message').val('')
-        return
-    }
 
     // loading 
     $('.chat-container').append(`

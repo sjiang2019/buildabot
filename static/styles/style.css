@@ -1,5 +1,7 @@
 body,html {
     height: 100%;
+    background-image: url("./birds/birds.png");
+    background-repeat: repeat;
 }
 
 .chat-container {

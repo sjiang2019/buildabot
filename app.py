@@ -20,9 +20,14 @@ def index():
 @app.route('/send_message', methods=['POST'])
 def send_message():
     message = request.form['message']
-    character = character_map[request.form['character']]
-    personality = personality_map[request.form['personality']]
-    emotion = emotion_map[request.form['emotion']]
+    c = request.form['character']
+    p = request.form['personality']
+    e = request.form['emotion']
+    if not c or not p or not e:
+        return jsonify({ "message":  "Please configure all options." })
+    character = character_map[c]
+    personality = personality_map[p]
+    emotion = emotion_map[e]
     grammar = Grammar(character + personality + emotion)
     response = grammar.generate_response(message)
     if len(response) == 0:
