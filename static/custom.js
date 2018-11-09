@@ -1,9 +1,32 @@
 
+// const pusher = new Pusher('74f52fef496b7b54cff0', {
+//     cluster: 'mt1',
+//     encrypted: true
+// });
+
+// const channel = pusher.subscribe('movie_bot');
+
+// // bind new_message event to movie_bot channel
+// channel.bind('new_message', function(data) {
+//  // Append human message
+//   $('.chat-container').append(`
+//       <div class="chat-message col-md-5 human-message">
+//           ${input_message}
+//       </div>
+//   `)
+  
+//   // Append bot message
+//   $('.chat-container').append(`
+//       <div class="chat-message col-md-5 offset-md-7 bot-message">
+//           ${data.message}
+//       </div>
+//   `)
+// });
+
 function submit_message(message) {
 
     $.post( "/send_message", {
-        message: message, 
-        socketId: pusher.connection.socket_id
+        message: message
     }, handle_response);
     
     function handle_response(data) {
@@ -17,7 +40,6 @@ function submit_message(message) {
       $( "#loading" ).remove();
     }
 }
-
 
 $('#target').on('submit', function(e){
     e.preventDefault();
