@@ -15,9 +15,14 @@ import sys
 #     ssl=True)
 
 app = Flask(__name__, static_url_path="/static/")
+bot = None
 
-project_id = os.getenv('DIALOGFLOW_PROJECT_ID')
-bot = Bot(project_id)
+
+@app.before_first_request
+def create_bot():
+    global bot
+    project_id = os.getenv('DIALOGFLOW_PROJECT_ID')
+    bot = Bot(project_id)
 
 @app.route('/')
 def index():
