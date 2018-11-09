@@ -26,6 +26,11 @@ body,html {
     border-radius: 5px;
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #282828;
+    opacity: 1; /* Firefox */
+}
+
 .input {
     padding-top: 10px;
     padding-left: 10px;
