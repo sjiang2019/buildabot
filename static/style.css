@@ -19,18 +19,18 @@ body {
     border-radius: 5px;
 }
 
-/* .human-message {
+.human-message {
     background: #eee;
     border-radius: 5px;
-} */
+}
 
-.human-message {
+/* .human-message {
     font-size: 24px;
     margin-top: -20px;
     margin-bottom: 10px;
     padding-left: 10px;
     color: #aaa;
-}
+} */
 
 .input {
     padding-top: 10px;

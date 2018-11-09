@@ -4,15 +4,7 @@ import dialogflow
 import requests
 import json
 from bot import Bot
-import pusher
 import sys
-
-# pusher_client = pusher.Pusher(
-#     app_id=os.getenv('PUSHER_APP_ID'),
-#     key=os.getenv('PUSHER_KEY'),
-#     secret=os.getenv('PUSHER_SECRET'),
-#     cluster=os.getenv('PUSHER_CLUSTER'),
-#     ssl=True)
 
 app = Flask(__name__, static_url_path="/static/")
 bot = None
