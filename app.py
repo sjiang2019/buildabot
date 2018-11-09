@@ -30,7 +30,7 @@ def send_message():
     emotion = emotion_map[e]
     grammar = Grammar(character + personality + emotion)
     response = grammar.generate_response(message)
-    if len(response) == 0:
+    if not response:
         response = bot.use_chat_bot(message)
     if not response:
         response = clean_sentence(grammar.gen_sent("Sentence"))

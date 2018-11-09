@@ -43,11 +43,19 @@ class Grammar:
         return sentence
 
     def generate_response(self, user_input):
-        for pattern in RESPONSE_MAP:
-            match = re.match(pattern, user_input.rstrip(".!"))
-            if match:
-                response = RESPONSE_MAP[pattern]
-                sent = clean_sentence(self.gen_sent(response))
-                return sent
-        return ""
+        user_input = user_input.rstrip(".!")
+        response = None
+        if "you" in user_input:
+            if "think" in user_input:
+                response = "Opinions"
+            elif "want" in user_input:
+                response = "Desires"
+            elif "to do" in user_input or "doing" in user_input:
+                response = "Hobbies"
+            elif "like" in user_input or "enjoy" in user_input or "love" in user_input:
+                response = "Interests"
+        if response:
+            sent = clean_sentence(self.gen_sent(response))
+            return sent
+        return None
             
